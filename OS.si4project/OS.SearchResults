@@ -1,0 +1,249 @@
+---- os_free Matches (37 in 13 files) ----
+parse_msg in dhcpserver.c (third_party\lwip\core) : 
+						        node_remove_from_list(&plist,pnode);
+						        os_free(pnode);
+						        pnode = NULL;
+						    }
+
+						    if (pdhcps_pool != NULL) {
+						        os_free(pdhcps_pool);
+						        pdhcps_pool = NULL;
+						    }
+//							client_address_plus.addr = dhcps_lease.start_ip.addr;
+parse_msg in dhcpserver.c (third_party\lwip\core) : 
+						        node_remove_from_list(&plist,pnode);
+						        os_free(pnode);
+						        pnode = NULL;
+						    }
+
+						    if (pdhcps_pool != NULL) {
+						        os_free(pdhcps_pool);
+						        pdhcps_pool = NULL;
+						    }
+						    memset(&client_address,0x0,sizeof(client_address));
+handle_dhcp in dhcpserver.c (third_party\lwip\core) : 
+        pbuf_free(p);
+        os_free(pmsg_dhcps);
+        pmsg_dhcps = NULL;
+}
+///////////////////////////////////////////////////////////////////////////////////
+dhcps_stop in dhcpserver.c (third_party\lwip\core) : 
+		node_remove_from_list(&plist, pback_node);
+		os_free(pback_node->pnode);
+		pback_node->pnode = NULL;
+		os_free(pback_node);
+		pback_node = NULL;
+	}
+}
+kill_oldest_dhcps_pool in dhcpserver.c (third_party\lwip\core) : 
+	minpre->pnext = minp->pnext;
+	os_free(minp->pnode);
+	minp->pnode = NULL;
+	os_free(minp);
+	minp = NULL;
+}
+
+dhcps_coarse_tmr in dhcpserver.c (third_party\lwip\core) : 
+			node_remove_from_list(&plist,pback_node);
+			os_free(pback_node->pnode);
+			pback_node->pnode = NULL;
+			os_free(pback_node);
+			pback_node = NULL;
+		} else {
+			pnode = pnode ->pnext;
+espconn_sent in espconn.c (third_party\espconn) : 
+//						espconn_pbuf_delete(&pnode->pcommon.pbuf, pbuf);
+//						os_free(pbuf);
+//						pbuf = NULL;
+//					}
+                    ESPCONN_API_MUTEX_GIVE();
+ringbuf_new in espconn_buf.c (third_party\espconn) : 
+        } else {
+            os_free(rb);
+            return NULL;
+        }
+    }
+ringbuf_free in espconn_buf.c (third_party\espconn) : 
+    lwIP_ASSERT(rb && *rb);
+    os_free((*rb)->buf);
+    os_free(*rb);
+    *rb = NULL;
+}
+
+espconn_tcp_memp_free in espconn_tcp.c (third_party\espconn) : 
+        if (pmemp->pespconn != NULL && pmemp->pespconn->proto.tcp != NULL) {
+            os_free(pmemp->pespconn->proto.tcp);
+        }
+
+        pmemp->pespconn->proto.tcp = NULL;
+
+        os_free(pmemp->pespconn);
+        pmemp->pespconn = NULL;
+    }
+
+espconn_tcp_memp_free in espconn_tcp.c (third_party\espconn) : 
+
+    os_free(pmemp);
+    pmemp = NULL;
+}
+
+espconn_tcp_reconnect in espconn_tcp.c (third_party\espconn) : 
+            espconn_pbuf_delete(&precon_cb->pcommon.pbuf, perr_back);
+            os_free(perr_back);
+            perr_back = NULL;
+        }
+
+espconn_tcp_disconnect_successful in espconn_tcp.c (third_party\espconn) : 
+            espconn_pbuf_delete(&pdiscon_cb->pcommon.pbuf, pdis_back);
+            os_free(pdis_back);
+            pdis_back = NULL;
+        }
+
+espconn_client_recv in espconn_tcp.c (third_party\espconn) : 
+            /*to prevent memory leaks, ensure that each allocated is deleted*/
+            os_free(pdata);
+            pdata = NULL;
+        }
+    } else {
+espconn_tcp_finish in espconn_tcp.c (third_party\espconn) : 
+            pfinish->pcommon.packet_info.sent_length = premove->len;
+            os_free(premove);
+            premove = NULL;
+            pfinish->pespconn->state = ESPCONN_CONNECT;
+
+espconn_tcp_client in espconn_tcp.c (third_party\espconn) : 
+        /*to prevent memory leaks, ensure that each allocated is deleted*/
+        os_free(pclient);
+        pclient = NULL;
+        return ESPCONN_MEM;
+    } else {
+espconn_tcp_client in espconn_tcp.c (third_party\espconn) : 
+            memp_free(MEMP_TCP_PCB, pcb);
+            os_free(pclient);
+            pclient = NULL;
+            return ERR_USE;
+        }
+espconn_tcp_client in espconn_tcp.c (third_party\espconn) : 
+            espconn_kill_pcb(pcb->local_port);
+            os_free(pclient);
+            pclient = NULL;
+            return ESPCONN_RTE;
+        }
+espconn_server_recv in espconn_tcp.c (third_party\espconn) : 
+            /*to prevent memory leaks, ensure that each allocated is deleted*/
+            os_free(data_ptr);
+            data_ptr = NULL;
+            espconn_printf("server's application data has been processed: %d\n", system_get_free_heap_size());
+        }
+espconn_tcp_server in espconn_tcp.c (third_party\espconn) : 
+        /*to prevent memory leaks, ensure that each allocated is deleted*/
+        os_free(pserver);
+        pserver = NULL;
+        return ESPCONN_MEM;
+    } else {
+espconn_tcp_server in espconn_tcp.c (third_party\espconn) : 
+            memp_free(MEMP_TCP_PCB, lpcb);
+            os_free(pserver);
+            pserver = NULL;
+            return ESPCONN_MEM;
+        }
+espconn_tcp_delete in espconn_tcp.c (third_party\espconn) : 
+                err = tcp_close(pcb);
+                os_free(pdelete_msg);
+                pdelete_msg = NULL;
+                break;
+            }
+espconn_udp_recv in espconn_udp.c (third_party\espconn) : 
+
+        os_free(pdata);
+        //ESPCONN_API_MUTEX_GIVE();
+    } else {
+        //ESPCONN_API_MUTEX_GIVE();
+espconn_udp_disconnect in espconn_udp.c (third_party\espconn) : 
+
+    os_free(pdiscon);
+
+    pdiscon = NULL;
+}
+esp_libc.h (include\espressif) line 94 : 
+#define MEMLEAK_DEBUG_ENABLE    0
+#ifndef os_free
+#define os_free(s)        free(s)
+#endif
+
+#ifndef os_malloc
+esp_libc.h (include\espressif) line 116 : 
+
+#ifndef os_free
+#define os_free(s) \
+do{\
+    static const char mem_debug_file[] ICACHE_RODATA_ATTR STORE_ATTR = __FILE__;    \
+    vPortFree(s, mem_debug_file, __LINE__);\
+FreeRTOS.h (include\freertos) line 552 : 
+#ifndef vPortFreeAligned
+	#define vPortFreeAligned( pvBlockToFree ) os_free( pvBlockToFree )
+#endif
+
+#ifndef portSUPPRESS_TICKS_AND_SLEEP
+http_get in http.c (examples\project_template\programs) : 
+
+    os_free();
+
+    return http_parse_result(lpbuf);
+} 
+
+nopoll_free in nopoll_decl.c (third_party\nopoll) : 
+{
+	os_free (ref);
+	return;
+}
+
+xQueueGenericCreate in queue.c (third_party\freertos) : 
+				traceQUEUE_CREATE_FAILED( ucQueueType );
+				os_free( pxNewQueue );
+			}
+		}
+	}
+vQueueDelete in queue.c (third_party\freertos) : 
+	#endif
+	os_free( pxQueue->pcHead );
+	os_free( pxQueue );
+}
+/*-----------------------------------------------------------*/
+
+esp_ssl_CTX_free in ssl_platform.c (third_party\ssl\ssl) : 
+{
+    os_free(ssl_ctx->bonus_attr);
+    ssl_ctx_free(ssl_ctx);
+}
+
+prvAllocateTCBAndStack in tasks.c (third_party\freertos) : 
+			/* Could not allocate the stack.  Delete the allocated TCB. */
+			os_free( pxNewTCB );
+			pxNewTCB = NULL;
+		}
+		else
+prvDeleteTCB in tasks.c (third_party\freertos) : 
+		vPortFreeAligned( pxTCB->pxStack );
+		os_free( pxTCB );
+	}
+
+#endif /* INCLUDE_vTaskDelete */
+vTaskList in tasks.c (third_party\freertos) : 
+			/* Free the array again. */
+			os_free( pxTaskStatusArray );
+		}
+	}
+
+vTaskGetRunTimeStats in tasks.c (third_party\freertos) : 
+			/* Free the array again. */
+			os_free( pxTaskStatusArray );
+		}
+	}
+
+prvProcessReceivedCommands in timers.c (third_party\freertos) : 
+				just free up the memory. */
+				os_free( pxTimer );
+				break;
+
+			default	:
